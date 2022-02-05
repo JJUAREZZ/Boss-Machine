@@ -24,4 +24,7 @@ minionsRouter.get("/", (req, res, next) => {
   res.send(getAllFromDatabase("minions"));
 });
 
-minionsRouter.post("/", (req, res, next) => {});
+minionsRouter.post("/", (req, res, next) => {
+  const newMinion = addToDatabase("minions", req.body);
+  res.send(201).send(newMinion);
+});
